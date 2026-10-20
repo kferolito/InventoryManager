@@ -88,6 +88,30 @@ void RemoveItem(std::vector<Item>& inventory)
     std::cout << std::endl;
 }
 
+void SearchItem(std::vector<Item>& inventory)
+{
+    std::string name;
+    std::cout << "Item name: ";
+    std::getline(std::cin >> std::ws, name);
+
+    bool found = false;
+
+    for(const Item& item : inventory)
+    {
+        if (item.name == name)
+        {
+            std::cout << "Name: " << item.name << ", " 
+            << "Quantity: " << item.quantity << ", "
+            << "Price: " << item.price << std::endl;
+
+            found = true;
+        }
+    }
+
+    if (!found)
+        std::cout << "No matching items found.\n";
+}
+
 bool ChooseMenuOption(int choice)
 {
     switch(choice)
@@ -97,6 +121,9 @@ bool ChooseMenuOption(int choice)
             return false;
         case 2:
             RemoveItem(g_inventory);
+            return false;
+        case 3:
+            SearchItem(g_inventory);
             return false;
         case 5:
             return true;
