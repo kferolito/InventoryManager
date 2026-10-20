@@ -112,6 +112,22 @@ void SearchItem(std::vector<Item>& inventory)
         std::cout << "No matching items found.\n";
 }
 
+void DisplayInventory(std::vector<Item>& inventory)
+{
+    if(inventory.size() == 0)
+    {
+        std::cout << "Inventory is empty.\n";
+        return;
+    }
+
+    for(const Item& item : inventory)
+    {
+        std::cout << "Name: " << item.name << ", " 
+        << "Quantity: " << item.quantity << ", "
+        << "Price: " << item.price << std::endl;
+    }
+}
+
 bool ChooseMenuOption(int choice)
 {
     switch(choice)
@@ -124,6 +140,9 @@ bool ChooseMenuOption(int choice)
             return false;
         case 3:
             SearchItem(g_inventory);
+            return false;
+        case 4:
+            DisplayInventory(g_inventory);
             return false;
         case 5:
             return true;
