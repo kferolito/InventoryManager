@@ -11,7 +11,7 @@ std::vector<Item> g_inventory;
 
 void PrintMenu()
 {
-    std::cout << "|====InventoryManager====|\n";
+    std::cout << "|InventoryManager|\n";
     std::cout << "1. Add item\n";
     std::cout << "2. Remove item\n";
     std::cout << "3. Search for item\n";
